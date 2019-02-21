@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据预览</title>
+    <link rel="shortcut icon" href="{{static_url('images/flower.ico')}}">
+    <link rel="stylesheet" href="{{static_url('CSS/table.css')}}">
+    <link rel="stylesheet" href="{{static_url('CSS/bootstrap.min.css')}}">
+</head>
+
+<body>
+
+    <br><br>
+    <div align="center">
+    <div style="width:800px">
+
+    <table class="table table-striped table-bordered table-condensed table-responsive">
+        <thead id="index">
+            <tr>
+                {% for title in data[0] %}
+                <th>{{ title }}</th>
+                {% end %}
+            </tr>
+        </thead>
+        <tbody id="body">
+            {% for line in data[1:] %}
+            <tr>
+                {% for cell in line %}
+                <td>{{ cell }}</td>
+                {% end %}
+            </tr>
+            {% end %}
+        </tbody>
+    </table>
+    </div>
+        <a href="/file"><button class="btn btn-warning" id="review">文件上传界面</button></a>
+    </div>
+
+</body>
+</html>

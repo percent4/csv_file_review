@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件浏览</title>
+    <link rel="shortcut icon" href="{{static_url('images/flower.ico')}}">
+    <link rel="stylesheet" href="{{static_url('CSS/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{static_url('CSS/amazeui.min.css')}}">
+</head>
+<body>
+
+    <div align="center">
+        <br><br>
+    <h1>文件浏览</h1>
+    <ul class="list-group" style="width:800px;text-align:left">
+        {% for file in files %}
+            {% if file.endswith('.csv') or file.endswith('.xls') or file.endswith('.xlsx') %}
+            <li class="list-group-item"> <a href={{"/data?file="+file}}>{{ file }}</a></li>
+            {% end %}
+        {% end %}
+    </ul>
+    <a href="/file"><button class="btn btn-success" id="review">文件上传界面</button></a>
+    </div>
+
+</body>
+</html>
